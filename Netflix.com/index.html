@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/Netflix.com/css/style.css" />
+  <link rel="stylesheet" href="/Netflix.com/mylist.html">
+  <link rel="stylesheet" href="/Netflix.com/index.html">
+  <link rel="stylesheet" href="/Netflix.com/series.html">
+  <link rel="stylesheet" href="/Netflix.com/movies.html">
+  <link rel="stylesheet" href="/Netflix.com/main.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    const types = ['movie', 'tv']
+  </script>
+  <script type="module" src="./scripts/home.js"></script>
+  <script type="module" src="./scripts/search.js"></script>
+  <script src="./scripts/module/header.js" defer></script>
+  <script src="./scripts/module/banner.js"></script>
+  <title>Netflix Clone</title>
+</head>
+
+<body>
+  <script src="./scripts/module/theme.js"></script>
+  <!-- nav -->
+  <div id="nav" class="nav">
+    <img class="nav__logo" src="https://exquisite-pegasus-b9abd5.netlify.app/images/netflix.svg" alt="" />
+    <ul class="dropdown">
+      <a style="text-decoration: none; color: #fff;" href="/Netflix.com/index.html">
+        <li id="home">Home</li>
+      </a>
+      <a style="text-decoration: none; color: #fff;" href="/Netflix.com/series.html">
+        <li id="series">Series</li>
+      </a>
+      <a style="text-decoration: none; color: #fff;" href="/Netflix.com/movies.html">
+        <li id="movies">Movies</li>
+      </a>
+      <a style="text-decoration: none; color: #fff;" href="/Netflix.com/mylist.html">
+        <li id="list">My List</li>
+      </a>
+
+    </ul>
+
+    <form class="search">
+      <svg class="search-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path fillrule="evenodd"
+          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          cliprule="evenodd"></path>
+      </svg>
+
+      <input type="text" placeholder="Search..." class="input" name="title">
+
+      <svg class="close-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+        <path
+          d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z">
+        </path>
+      </svg>
+    </form>
+
+    <section class="search-movies">
+      <div class="wrapper"></div>
+
+      <div class="slider-switch">
+        <label class="switch">
+          <!-- Input for slider switch -->
+          <input type="checkbox" onchange="toggleMode()">
+          <!-- Slider with custom design -->
+          <span class="slider round"></span>
+          <!-- Icon from Font Awesome -->
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <!-- header -->
+  <header class="banner">
+    <div class="banner">
+      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" class="banner__contents">
+        <h1 class="banner__title">After the Pandemic</h1>
+        <div class="banner__buttons">
+          <button class="banner__button">Play</button>
+          <button class="banner__button">My List</button>
+        </div>
+        <h1 class="banner__description">
+          Set in a post-apocalyptic world where a global airborne pandemic has wiped out 90% of the Earth's population
+          and only
+          the young and immune have endured as scavengers. For Ellie and Quinn, the daily challenges to stay alive are
+          compounded
+          when they become hunted by the merciless Stalkers.
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="banner home">
+      <div class="banner-genres mobile"></div>
+    </div>
+
+    <main>
+      <div class="poster">
+      </div>
+    </main>
+
+    <section class="modal overlay">
+      <div class="modal-card card">
+      </div>
+    </section>
+
+    <div class="iframe-wrapper overlay">
+      <iframe title="trailer"></iframe>
+    </div>
+    <p class="copyright">&copy; 2022 Steav Khet. All Rights Reserved.</p>
+  </main>
+
+  <!-- AOS library script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="/Netflix.com/scripts/module/utils.js"></script>
+  <script src="/Netflix.com/scripts/module/myassistant.js"></script>
+  <script src="/Netflix.com/scripts/module/swiper.js"></script>
+  <script src="/Netflix.com/scripts/search.js"></script>
+  <script src="/Netflix.com/scripts/module/banner.js"></script>
+
+  <!-- Your other scripts -->
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 100) {
+        nav.classList.add('nav__black');
+      } else {
+        nav.classList.remove('nav__black');
+      }
+    });
+
+    function toggleLightMode() {
+      document.body.style.backgroundColor = '#fff'; // Set light mode background color
+      document.querySelector('.slider-switch img[src="sun.png"]').style.display = 'block'; // Show sun image
+      document.querySelector('.slider-switch img[src="moon.png"]').style.display = 'none'; // Hide moon image
+    }
+
+    function toggleDarkMode() {
+      document.body.style.backgroundColor = '#202023'; // Set dark mode background color
+      document.querySelector('.slider-switch img[src="moon.png"]').style.display = 'block'; // Show moon image
+      document.querySelector('.slider-switch img[src="sun.png"]').style.display = 'none'; // Hide sun image
+    }
+
+    function toggleMode() {
+      const checkbox = document.querySelector('.slider-switch input');
+      if (checkbox.checked) {
+        toggleDarkMode();
+      } else {
+        toggleLightMode();
+      }
+    }
+
+
+
+  </script>
+
+
+</body>
+
+</html>

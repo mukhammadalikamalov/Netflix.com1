@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Netflix.com/css/movies.css" />
+    <link rel="stylesheet" href="/Netflix.com/mylist.html">
+    <link rel="stylesheet" href="/Netflix.com/index.html">
+    <link rel="stylesheet" href="/Netflix.com/series.html">
+    <link rel="stylesheet" href="/Netflix.com/movies.html">
+    <link rel="stylesheet" href="/Netflix.com/main.html">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        const types = ['movie', 'tv']
+    </script>
+    <script type="module" src="./scripts/home.js"></script>
+    <script type="module" src="./scripts/search.js"></script>
+    <script src="./scripts/module/header.js"></script>
+    <title>Netflix Clone</title>
+    <style>
+        /* Define light mode styles */
+        body.dark-mode {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Define dark mode styles */
+        body.light-mode {
+            background-color: #2323;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body> <!-- No initial class -->
+    <!-- nav -->
+    <div id="nav" class="nav">
+        <img class="nav__logo" src="https://exquisite-pegasus-b9abd5.netlify.app/images/netflix.svg" alt="" />
+        <ul class="dropdown">
+            <a style="text-decoration: none; color: #fff;" href="/Netflix.com/index.html">
+                <li id="home">Home</li>
+            </a>
+            <a style="text-decoration: none; color: #fff;" href="/Netflix.com/series.html">
+                <li id="series">Series</li>
+            </a>
+            <a style="text-decoration: none; color: #fff;" href="/Netflix.com/movies.html">
+                <li id="movies">Movies</li>
+            </a>
+            <a style="text-decoration: none; color: #fff;" href="/Netflix.com/mylist.html">
+                <li id="list">My List</li>
+            </a>
+        </ul>
+
+
+        <form class="search">
+            <svg class="search-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fillrule="evenodd"
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    cliprule="evenodd"></path>
+            </svg>
+
+            <input type="text" placeholder="Search..." class="input" name="title">
+
+            <svg class="close-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+                <path
+                    d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z">
+                </path>
+            </svg>
+        </form>
+
+        <section class="search-movies">
+            <div class="wrapper"></div>
+        </section>
+
+        <div class="slider-switch">
+            <label class="switch">
+                <!-- Input for slider switch -->
+                <input type="checkbox" id="modeSwitch">
+                <!-- Slider with custom design -->
+                <span class="slider round"></span>
+                <!-- Icon from Font Awesome -->
+            </label>
+        </div>
+        </section>
+    </div>
+
+    <!-- header -->
+    <header class="banner">
+        <div style="background-image: linear-gradient(to right, rgb(16, 15, 15) 5%, rgba(0, 0, 0, 0) 90%), url('');"
+            class="banner">
+
+            <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" class="banner__contents">
+                <h1 class="banner__title">No Way Up</h1>
+                <div class="banner__buttons">
+                    <button style="background-color: rgb(218, 4, 4);" class="banner__button">Watch Now</button>
+                    <button style="background-color: black;" class="banner__button">More Information</button>
+                </div>
+                <h1 class="banner__description">
+                    Characters from different backgrounds are thrown together when the plane they're travelling on
+                    crashes into
+                    the Pacific
+                    Ocean. A nightmare fight for survival ensues with the air supply running out and dangers creeping in
+                    from all
+                    sides.
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="banner home">
+            <div class="banner-genres mobile"></div>
+        </div>
+
+        <main>
+            <div class="poster">
+            </div>
+        </main>
+
+        <section class="modal overlay">
+            <div class="modal-card card">
+            </div>
+        </section>
+
+        <div class="iframe-wrapper overlay">
+            <iframe title="trailer"></iframe>
+        </div>
+        <p class="copyright">&copy; 2022 Steav Khet. All Rights Reserved.</p>
+    </main>
+
+    <!-- AOS library script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/Netflix.com/scripts/module/utils.js"></script>
+    <script src="/Netflix.com/scripts/module/myassistant.js"></script>
+    <script src="/Netflix.com/scripts/module/swiper.js"></script>
+    <script src="/Netflix.com/scripts/search.js"></script>
+
+    <!-- Your other scripts -->
+    <script>
+        AOS.init();
+
+        // Set initial mode based on slider switch state
+        const modeSwitch = document.getElementById('modeSwitch');
+        if (modeSwitch.checked) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+
+        // Toggle mode when slider switch changes
+        modeSwitch.addEventListener('change', () => {
+            if (modeSwitch.checked) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 100) {
+                nav.classList.add('nav__black');
+            } else {
+                nav.classList.remove('nav__black');
+            }
+        });
+    </script>
+</body>
+
+</html>
