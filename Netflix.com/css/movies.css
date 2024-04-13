@@ -22,17 +22,16 @@ body {
 
 /* banner */
 .banner {
-    background-image: url('images/banner.jpg');
     background-size: cover;
-    background-position: center center;
-    color: white;
+    background-position: center;
     object-fit: contain;
-    height: 630px;
+    height: 100vh;
+    transition: all 0.2s ease-in-out;
 }
 
 .banner__contents {
     margin-left: 30px;
-    padding-top: 370px;
+    padding-top: 520px;
     height: 190px;
 }
 
